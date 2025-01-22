@@ -1,5 +1,8 @@
 # torchPACE
-PyTorch CUDA/C++ extension of PACE. A Transformer non-linearlity accelerator engine.
+PyTorch C++ and CUDA extension for PACE's Piecewise Polynomial Approximation(PwPA), a Transformer non-linerarities accelaration engine.
+
+This library integrates the best performing CUDA kernels in [here](extra\test_optimization.cu).
+w.r.t. a simple speedup metric shown in this [README](extra\README.md).
 
 ## Installation
 Built with [PyPA/Build](https://github.com/pypa/build), but you can use Pip or similar.
@@ -14,53 +17,37 @@ To install:  </br>
 pip install dist\<builded_extension_file.whl>
 ```
 
-> [!Important]
-> Requirements: 
->    - torch>=2.4 with CUDA enabled (here is 2.5.1+cu118)
->    - CUDA toolkit (here is 11.7)
->    - Python>=3.8 (here is 3.12.8)
-
-## Example
-```python
-import torch
-import torch_pace
-
-### Parameters definitions
-N = 10    # Number of input points
-D = 3       # Polynomial Degree
-P = 8      # Number of partitions
-x_min = -5  # Minumum of inputs points
-x_max = 5   # Maximum of input points
-c_min = -10 # Minumum of Coeffient range
-c_max = 10  # Maximum of Coeffient range
-
-### Data definitons
-X = torch.linspace(x_min, x_max, N)
-partition_points = torch.linspace(x_min-1, x_max+1, P+1) # NOTE: first and last bound must be respectively lt and gt of any number in X
-coeffs = torch.randn((P,D+1))
-
-# C++ base-version
-ext_cpu = torch_pace.ops._pwpa(X.cpu(), coeffs.cpu(), partition_points.cpu())
-# C++ optimizaed-version
-ext_soa_cpu = torch_pace.ops.pwpa(X.cpu(), coeffs.cpu(), partition_points.cpu())
-# CUDA base-version
-ext_cuda = torch_pace.ops._pwpa(X.cuda(), coeffs.cuda(), partition_points.cuda()).cpu() if torch.cuda.is_available() else None
-# CUDA optimized-version w/out Shared Memory
-ext_soa_cuda = torch_pace.ops.pwpa(X.cuda(), coeffs.cuda(), partition_points.cuda()).cpu() if torch.cuda.is_available() else None
-# CUDA optimized-version w/ Shared Memory
-ext_shmem_cuda = torch_pace.ops.pwpa_shmem(X.cuda(), coeffs.cuda(), partition_points.cuda()).cpu() if torch.cuda.is_available() else None
-
-# Print results
-print(f"CPU:\n{ext_cpu.numpy()}")
-print(f"CPU optimized:\n{ext_soa_cpu.numpy()}")
-print(f"CUDA:\n{ext_cuda.numpy()}")
-print(f"CUDA optimized w/out SharedMemory:\n{ext_soa_cuda.numpy()}")
-print(f"CUDA optimized w/ SharedMemory:\n{ext_shmem_cuda.numpy()}")
+To test:  </br>
+```text
+python test\extension_test.py
+```
+</br>
+```text
+python test\approximation_test.py
 ```
 
+> [!Important]
+> Requirements: 
+>    - torch>=2.4 with CUDA enabled (mine is 2.5.1+cu118)
+>    - CUDA toolkit (mine is 11.7)
+>    - Python>=3.8 (mine is 3.12.8)
+
+> [!Note]
+> To test you also need: 
+>    - Pandas
+>    - NumPy
+>    - Matplotlib
 
 ## Results
 
+This is the ouput of running [approximation_test.py](test\approximation_test.py):
+
+## ToDo
+A brief list of things to do or fix in this extension:
+- [x] PyTorch Half type support
+- [ ] Extension Benchmark on non-linearities in plain CUDA code
+- [ ] Extension Benchmark on PyTorch non-linearities
+
 ## Credits
 
-Extension structure inspired from [this tutorial](https://github.com/pytorch/extension-cpp).
+Extension backbone inspired by [this tutorial](https://github.com/pytorch/extension-cpp).
