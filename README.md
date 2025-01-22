@@ -1,6 +1,7 @@
 # torchPACE
 PyTorch C++ and CUDA extension for PACE's Piecewise Polynomial Approximation(PwPA), a Transformer non-linerarities accelaration engine.
 
+## Introduction
 This extension integrates PwPA CUDA kernels for both AoS and SoA coefficients' data structure using a simple unrolling technic.</br>
 More details [here](extra\README.md).
 
