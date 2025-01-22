@@ -3,7 +3,7 @@ PyTorch C++ and CUDA extension for PACE's Piecewise Polynomial Approximation(PwP
 
 ## Introduction
 This extension integrates PwPA CUDA kernels for both AoS and SoA coefficients' data structure using a simple unrolling technic.</br>
-More details [here](extra\README.md).
+More details [here](extra/README.md).
 
 ## Setup
 Built with [PyPA/Build](https://github.com/pypa/build), but you can use Pip or similar.
@@ -43,7 +43,7 @@ y = torch_pace.ops.pwpa(x, coeffs, partition_points, AoS=true)
 
 ## Results
 
-This is the ouput of running [approximation_test.py](test\approximation_test.py):
+This is the ouput of running [approximation_test.py](test/approximation_test.py):
 ![immagine](https://github.com/user-attachments/assets/01ecdbec-d232-4e9e-99f5-f5d38cadfeb3)
 
 
