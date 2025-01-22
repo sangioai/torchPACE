@@ -41,7 +41,7 @@ y = torch_pace.ops.pwpa(x, coeffs, partition_points, AoS=true)
 >    - CUDA toolkit (mine is 11.7)
 >    - Python>=3.8 (mine is 3.12.8)
 
-## Results
+## Examples
 
 This is the ouput of running [approximation_test.py](test/approximation_test.py):
 ![immagine](https://github.com/user-attachments/assets/01ecdbec-d232-4e9e-99f5-f5d38cadfeb3)
@@ -52,6 +52,8 @@ A brief list of things to do or fix in this extension:
 - [x] PyTorch Half type support
 - [ ] Extension Benchmark on non-linearities in plain CUDA code
 - [ ] Extension Benchmark on PyTorch non-linearities
+- [x] aos2soa function
+- [ ] soa2aos function
 
 ## Credits
 
