@@ -61,6 +61,7 @@ A brief list of things to do or fix in this extension:
 - [ ] Extension Benchmark on PyTorch non-linearities
 - [x] aos2soa function
 - [ ] soa2aos function
+- [ ] Neural Net example
 
 ## Credits
 
