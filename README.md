@@ -53,6 +53,9 @@ y = torch_pace.ops.pwpa(x, coeffs_soa, partition_points, AoS=false)
 This is the ouput of running [approximation_test.py](test/approximation_test.py):
 ![immagine](https://github.com/user-attachments/assets/01ecdbec-d232-4e9e-99f5-f5d38cadfeb3)
 
+> [!Note]
+> [approximation_test.py](test/approximation_test.py) uses a simple uniform partitioning which divides the X-value range in equal parts.</br>
+> More sophisticated partitioning strategies may account for slope trends, yielding more accurate approximations where the function changes more.
 
 ## ToDo
 A brief list of things to do or fix in this extension:
