@@ -65,3 +65,7 @@ A brief list of things to do or fix in this extension:
 ## Credits
 
 Extension backbone inspired by [this tutorial](https://github.com/pytorch/extension-cpp).
+
+## Authors
+
+[Marco Sangiorgi](https://github.com/SangioAI)
