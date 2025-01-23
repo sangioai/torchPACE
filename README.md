@@ -32,7 +32,14 @@ To use:  </br>
 ```python
 import torch_pace
 ...
+# base kernel
+y = torch_pace.ops._pwpa(x, coeffs, partition_points, AoS=true)
+# optimized kernel
 y = torch_pace.ops.pwpa(x, coeffs, partition_points, AoS=true)
+# AoS to SoA coefficients rearrangement
+coeffs_soa = torch_pace.ops.aos2soa(coeffs, degree)
+# optimized kernel with SoA coefficients' data structure
+y = torch_pace.ops.pwpa(x, coeffs_soa, partition_points, AoS=false)
 ```
 
 > [!Important]
