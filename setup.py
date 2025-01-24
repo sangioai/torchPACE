@@ -72,6 +72,6 @@ setup(
     description="PyTorch C++ and CUDA extension of PACE's Piecewise Polynomial Approximation for Transformer non-linerarities.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/sangioai/torch-pace",
+    url="https://github.com/sangioai/torchPACE",
     cmdclass={"build_ext": BuildExtension},
 )
