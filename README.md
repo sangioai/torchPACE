@@ -62,6 +62,7 @@ A brief list of things to do or fix in this extension:
 - [x] PyTorch Half type support
 - [ ] Extension Benchmark on non-linearities in plain CUDA code
 - [ ] Extension Benchmark on PyTorch non-linearities
+- [ ] ILP (Instruction-Level Parallelism) integration
 - [x] aos2soa function
 - [ ] soa2aos function
 - [ ] Neural Net example
