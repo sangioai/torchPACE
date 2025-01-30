@@ -75,3 +75,5 @@ Extension backbone inspired by [this tutorial](https://github.com/pytorch/extens
 ## Authors
 
 [Marco Sangiorgi](https://github.com/SangioAI)
+</br>
+*2025©*
