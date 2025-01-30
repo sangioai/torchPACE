@@ -65,7 +65,8 @@ A brief list of things to do or fix in this extension:
 - [ ] ILP (Instruction-Level Parallelism) integration
 - [x] aos2soa function
 - [ ] soa2aos function
-- [ ] Neural Net example
+- [ ] CUDA SIMD instrics analysis for float16 (PyTorch Half) type  
+- [ ] PyTorch neural net example
 
 ## Credits
 
